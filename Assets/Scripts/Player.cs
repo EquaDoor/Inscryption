@@ -1,20 +1,25 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
     public List<Transform> poses = new List<Transform>();
     public Transform cam;
     public Deck deck;
      
     int currentPos = 1;
+    bool cardSelected = false;
+
+    //--------------------------------------------------------------------------------------------
 
     private void Update() {
-        if(deck.hand != null && Input.GetKeyDown(KeyCode.Mouse0)) {
+        if(deck.hand && !cardSelected) {
             currentPos = 2;
+            cardSelected = true;
         }
+
         if (Input.GetKeyDown(KeyCode.W)) {
             currentPos++;
             if(currentPos > poses.Count - 1) {
@@ -22,12 +27,14 @@ public class Player : MonoBehaviour
             }
         }
         if (Input.GetKeyDown(KeyCode.S)) {
+            // return если пожертвовали
             currentPos--;
             if(currentPos < 0) {
                 currentPos = 0;
             }
-            if(deck.hand != null && currentPos < 2) {
+            if(deck.hand && currentPos < 2) {
                 deck.DeselectCard(deck.hand);
+                cardSelected = false;
             }
         }
         cam.position=Vector3.Lerp(cam.position, poses[currentPos].position, 0.1f);
