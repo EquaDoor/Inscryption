@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
     public List<Transform> poses = new List<Transform>();
     public Transform cam;
     
-    int currentPos = 0;
+    int currentPos = 1;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.W)) {
