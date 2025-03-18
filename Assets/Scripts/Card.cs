@@ -10,6 +10,11 @@ public class Card : MonoBehaviour
     public TMP_Text priceText;
     public TMP_Text damageText;
     public TMP_Text healthText;
+
+    public float yOffset = 0.5f;
+    private Vector3 startPos;
+    private Vector3 currPos;
+    private float speed = 0.1f;
     
     //--------------------------------------------------------------------------------------------
 
@@ -20,10 +25,19 @@ public class Card : MonoBehaviour
         priceText.text = data.price.ToString();
         damageText.text = data.damage.ToString();
         healthText.text = data.health.ToString();
+
+        startPos = transform.position;
     }
 
-    public void Use()
+    void Update()
     {
-        deck.SelectCard(this);
+        transform.position = Vector3.Lerp(transform.position,
+            new Vector3(transform.position.x,currPos.y,transform.position.z), speed);
     }
+
+    public void Use() => deck.SelectCard(this);
+
+    private void OnMouseOver() => currPos = startPos + (Vector3.up*yOffset);
+    void OnMouseExit() => currPos = startPos;
+    void OnMouseDown() => Use();
 }

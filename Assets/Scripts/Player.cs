@@ -20,13 +20,13 @@ public class Player : MonoBehaviour
             cardSelected = true;
         }
 
-        if (Input.GetKeyDown(KeyCode.W) || Input.GetAxisRaw("Vertical") > 0) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             currentPos++;
             if(currentPos > poses.Count - 1) {
                 currentPos = poses.Count - 1;
             }
         }
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetAxisRaw("Vertical") < 0) {
+        if (Input.GetKeyDown(KeyCode.S)) {
             // return если пожертвовали
             currentPos--;
             if(currentPos < 0) {
