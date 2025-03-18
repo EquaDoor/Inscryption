@@ -15,7 +15,7 @@ public class Deck : MonoBehaviour
         foreach(Transform c in transform) {
             Card tmp = c?.GetComponent<Card>();
             cards.Add(tmp);
-            tmp.deck = this;
+            tmp.Init(this);
         }
     }
     public void SelectCard(Card card) {
