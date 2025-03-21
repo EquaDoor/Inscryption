@@ -23,6 +23,7 @@ public class ObjectLayout : MonoBehaviour
     {
         for(int i=0;i<objs.Count;i++) {
             if(objs[i] == null) objs.RemoveAt(i);
+            // if(objs[i].parent != this) objs.RemoveAt(i);
             Vector3 newPos = new Vector3(
                 useX ? transform.position.x+(offset.x*i) : objs[i].position.x,
                 useY ? transform.position.y+(offset.y*i) : objs[i].position.y,
@@ -30,6 +31,11 @@ public class ObjectLayout : MonoBehaviour
             );
             objs[i].position = Vector3.Lerp(objs[i].position, newPos, speed * Time.deltaTime);
         }
+    }
+
+    public void RemoveObj(Transform obj)
+    {
+        this.objs.Remove(obj);
     }
 
 }

@@ -12,5 +12,11 @@ public class Table : MonoBehaviour
     public List<Card> drawPile = new List<Card>();
     public List<Card> squirrelPile = new List<Card>();
     
+    public Deck playerDeck;
     
+    public void PlaceCard(Slot slot) {
+        if(frontLine.Contains(slot)) slot.PlaceCard(playerDeck);
+        // else if(nextLine.Contains(slot)) slot.PlaceCard(enemyDeck.hand);
+        else Debug.LogError("Wrong slot");
+    }
 }

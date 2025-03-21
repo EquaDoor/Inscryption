@@ -5,7 +5,7 @@ using TMPro;
 
 public class Card : MonoBehaviour
 {
-    public Deck deck;
+    public Deck deck; // check if players
     public CardData data;
     public TMP_Text priceText;
     public TMP_Text damageText;
