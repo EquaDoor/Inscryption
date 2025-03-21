@@ -14,12 +14,12 @@ public class ObjectLayout : MonoBehaviour
 
     //--------------------------------------------------------------------------------------------
 
-    void Start()
+    private void Start()
     {
-        foreach(Transform c in transform) objs.Add(c);        
+        foreach(Transform c in transform) objs.Add(c);
     }
 
-    void Update()
+    private void LateUpdate()
     {
         for(int i=0;i<objs.Count;i++) {
             if(objs[i] == null) objs.RemoveAt(i);
@@ -31,4 +31,5 @@ public class ObjectLayout : MonoBehaviour
             objs[i].position = Vector3.Lerp(objs[i].position, newPos, speed * Time.deltaTime);
         }
     }
+
 }

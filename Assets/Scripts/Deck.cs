@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
+    public ObjectLayout layout;
+
     public List<Card> cards = new List<Card>();
     public Card hand;
 
