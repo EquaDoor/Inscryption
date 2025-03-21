@@ -35,4 +35,13 @@ public class Deck : MonoBehaviour
         cards.Add(hand);
         hand = null;
     }
+
+    public void GetCard(Card card) {
+        card.transform.parent = this.transform;
+        layout.AddObj(card.transform);
+        card.transform.position = this.transform.position;
+        card.transform.rotation = Quaternion.identity;
+        // hand.transform.localScale = this.transform.localScale;
+        cards.Add(card);
+    }
 }

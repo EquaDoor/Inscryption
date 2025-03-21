@@ -19,4 +19,11 @@ public class Table : MonoBehaviour
         // else if(nextLine.Contains(slot)) slot.PlaceCard(enemyDeck.hand);
         else Debug.LogError("Wrong slot");
     }
+
+    void Start()
+    {
+        foreach(Card c in squirrelPile) c.Init(table: this);
+    }
+
+    public void GetCard(Card card) => playerDeck.cards.Add(card);
 }

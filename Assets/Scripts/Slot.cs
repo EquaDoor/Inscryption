@@ -12,7 +12,7 @@ public class Slot : MonoBehaviour
         deck.layout.RemoveObj(deck.hand.transform);
         deck.hand.transform.position = this.transform.position;
         deck.hand.transform.rotation = Quaternion.identity;
-        deck.hand.transform.localScale = this.transform.localScale;
+        deck.hand.transform.localScale = this.transform.localScale / 3f;
         deck.hand = null;
     }
 }

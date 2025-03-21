@@ -33,6 +33,11 @@ public class ObjectLayout : MonoBehaviour
         }
     }
 
+    public void AddObj(Transform obj)
+    {
+        this.objs.Add(obj);
+    }
+
     public void RemoveObj(Transform obj)
     {
         this.objs.Remove(obj);
